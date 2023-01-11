@@ -70,6 +70,13 @@ namespace SportsStore.Models
                         Category = "Chess", Price = 1200
                     }
                 );
+                new Product
+                {
+                    Name = "ball",
+                    Description = "football ball",
+                    Price = 500,
+                    Category = "football"
+                };
                 context.SaveChanges();
             }
         }
