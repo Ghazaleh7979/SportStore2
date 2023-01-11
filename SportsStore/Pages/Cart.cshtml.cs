@@ -7,11 +7,11 @@ namespace SportsStore.Pages
 {
     public class CartModel : PageModel
     {
-        private IStoreRepository repository;
+        private IStoreRepository _repository;
 
         public CartModel(IStoreRepository repo, Cart cartService)
         {
-            repository = repo;
+            _repository = repo;
             Cart = cartService;
         }
 
@@ -26,8 +26,8 @@ namespace SportsStore.Pages
 
         public IActionResult OnPost(long productId, string returnUrl)
         {
-            Product? product = repository.Products
-                .FirstOrDefault(p => p.ProductID == productId);
+            Product? product = _repository.Products
+                .FirstOrDefault(p => p.ProductId == productId);
             if (product != null)
             {
                 Cart.AddItem(product, 1);
@@ -42,7 +42,7 @@ namespace SportsStore.Pages
         public IActionResult OnPostRemove(long productId, string returnUrl)
         {
             Cart.RemoveLine(Cart.Lines.First(cl =>
-                cl.Product.ProductID == productId).Product);
+                cl.Product.ProductId == productId).Product);
             return RedirectToPage(new { returnUrl = returnUrl });
         }
     }

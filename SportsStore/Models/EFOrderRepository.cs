@@ -2,11 +2,11 @@
 
 namespace SportsStore.Models
 {
-    public class EFOrderRepository : IOrderRepository
+    public class EfOrderRepository : IOrderRepository
     {
         private StoreDbContext _context;
 
-        public EFOrderRepository(StoreDbContext ctx)
+        public EfOrderRepository(StoreDbContext ctx)
         {
             _context = ctx;
         }
@@ -18,7 +18,7 @@ namespace SportsStore.Models
         public void SaveOrder(Order order)
         {
             _context.AttachRange(order.Lines.Select(l => l.Product));
-            if (order.OrderID == 0)
+            if (order.OrderId == 0)
             {
                 _context.Orders.Add(order);
             }

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 namespace SportsStore.Models {
     public class Product {
-        public long? ProductID { get; set; }
+        public long? ProductId { get; set; }
         
         [Required(ErrorMessage = "Please enter a product name")]
         public string Name { get; set; } = String.Empty;

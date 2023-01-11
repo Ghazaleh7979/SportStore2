@@ -8,8 +8,8 @@ builder.Services.AddDbContext<StoreDbContext>(opts => {
     opts.UseSqlServer(
         builder.Configuration["ConnectionStrings:SportsStoreConnection"]);
 });
-builder.Services.AddScoped<IStoreRepository, EFStoreRepository>();
-builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
+builder.Services.AddScoped<IStoreRepository, EfStoreRepository>();
+builder.Services.AddScoped<IOrderRepository, EfOrderRepository>();
 
 builder.Services.AddRazorPages();
 builder.Services.AddDistributedMemoryCache();

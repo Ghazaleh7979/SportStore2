@@ -7,7 +7,7 @@
         public virtual void AddItem(Product product, int quantity)
         {
             CartLine? line = Lines
-                .FirstOrDefault(p => p.Product.ProductID == product.ProductID);
+                .FirstOrDefault(p => p.Product.ProductId == product.ProductId);
             if (line == null)
             {
                 Lines.Add(new CartLine
@@ -23,7 +23,7 @@
         }
 
         public virtual void RemoveLine(Product product) =>
-            Lines.RemoveAll(l => l.Product.ProductID == product.ProductID);
+            Lines.RemoveAll(l => l.Product.ProductId == product.ProductId);
 
         public decimal ComputeTotalValue() =>
             Lines.Sum(e => e.Product.Price * e.Quantity);
